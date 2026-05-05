@@ -66,15 +66,19 @@ export default {
     },
     setSelect() {
       this.activeAnchor = "";
-      const range = 80;
-      for (const dom of this.doms) {
+
+      const range = 100;
+      for (const dom of this.doms) {   
+        //console.log(dom);
+              
         // 看一下当前这个dom元素是不是应该被选中
         if (!dom) {
           continue;
         }
         // 得到元素离视口顶部的距离
         const top = dom.getBoundingClientRect().top;
-
+        // console.log(`${dom.outerHTML}` +top);
+        
         if (top >= 0 && top <= range) {
           // 在规定的范围内
           this.activeAnchor = dom.id;
@@ -82,8 +86,7 @@ export default {
         } else if (top > range) {
           // 在规定的范围下方
           return;
-        } else {
-          // 在规定的范围上方
+        } else {    
           this.activeAnchor = dom.id; // 先假设自己是激活的，然后继续看后面
         }
       }

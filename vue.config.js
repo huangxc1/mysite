@@ -1,5 +1,7 @@
 module.exports = {
     configureWebpack: require("./webpack.config"),
+    publicPath: './',
+  
 
     devServer: {
         proxy: {
@@ -10,5 +12,6 @@ module.exports = {
                 target: 'http://localhost:7001',
             }
         }
-    }
+    },
+   
 }
